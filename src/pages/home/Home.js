@@ -19,7 +19,7 @@ function App() {
         try {
             const res = await axios({
                 method: 'GET',
-                url: `http://localhost:3001/todo${location.search}`
+                url: `https://fake-api-coba.herokuapp.com/todos${location.search}`
             })
             setData(res?.data)
         } catch (error) {
@@ -51,7 +51,7 @@ function App() {
         try {
             const res = await axios({
                 method: 'GET',
-                url: 'http://localhost:3001/todo'
+                url: 'https://fake-api-coba.herokuapp.com/todos'
             })
             setData(res.data.filter((item) => item.complete === true))
         } catch (error) {
@@ -82,7 +82,7 @@ function App() {
         try {
             const res = await axios({
                 method: 'GET',
-                url: 'http://localhost:3001/todo'
+                url: 'https://fake-api-coba.herokuapp.com/todos'
             })
             setData(res.data.filter((item) => item.complete === false))
         } catch (error) {
@@ -103,7 +103,7 @@ function App() {
     const handleDelete = async(id) =>{
         setData(data.filter((item) => item.id!==id))
         try {
-            await axios.delete(`http://localhost:3001/todo/${id}`)
+            await axios.delete(`https://fake-api-coba.herokuapp.com/todos/${id}`)
             setRedata(true)
         } catch (error) {
             console.log(error)
@@ -129,8 +129,8 @@ function App() {
         // })
         handleGet(data.forEach((item) => {
             if(item.complete===true){
-                 axios.delete(`http://localhost:3001/todo/${item.id}`)
-                
+                 axios.delete(`https://fake-api-coba.herokuapp.com/todos/${item.id}`)
+                 
             }
         }))
         setRedata(true)
@@ -139,8 +139,7 @@ function App() {
     const  handleDeleteAll = async() =>{
         handleGet(data.forEach((item) => {
             if(item.id){
-                 axios.delete(`http://localhost:3001/todo/${item.id}`)
-                
+                axios.delete(`https://fake-api-coba.herokuapp.com/todos/${item.id}`)
             }
         }))
         setRedata(true)
@@ -150,7 +149,7 @@ function App() {
         try {
             await axios({
                 method:'PUT',
-                url: `http://localhost:3001/todo/${item.id}`,
+                url: `https://fake-api-coba.herokuapp.com/todos/${item.id}`,
                 data:  {
                     ...item,
                     complete: !item.complete
@@ -206,6 +205,10 @@ function App() {
                         }
                         if(!search){
                             alert('harap inputkan data')
+                            navigate('/')
+                        }
+                        if(search !== search.task){
+                            alert('Data tidak ada, harap masukan data yang sesuai')
                             navigate('/')
                         }
                         setRedata(true)

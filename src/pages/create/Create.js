@@ -16,7 +16,7 @@ const Create = () =>{
         try {
             const res = await axios({
                 method:'POST',
-                url:'http://localhost:3001/todo',
+                url:'https://fake-api-coba.herokuapp.com/todos',
                 data:{
                     id: id,
                     task: tugas,
@@ -34,7 +34,7 @@ const Create = () =>{
         try {
             await axios({
                 method:'PUT',
-                url:`http://localhost:3001/todo/${params.id}`,
+                url:`https://fake-api-coba.herokuapp.com/todos/${params.id}`,
                 data:{
                     task: tugas
                 }
@@ -48,7 +48,7 @@ const Create = () =>{
         try {
             const res = await axios({
                 method:'GET',
-                url:`http://localhost:3001/todo/${params.id}`
+                url:`https://fake-api-coba.herokuapp.com/todos/${params.id}`
             })
             setTugas(res.data.task)
         } catch (error) {
