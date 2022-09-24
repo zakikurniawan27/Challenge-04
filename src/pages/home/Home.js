@@ -206,8 +206,7 @@ function App() {
                         if(!search){
                             alert('harap inputkan data')
                             navigate('/')
-                        }
-                        if(search !== search.task){
+                        }else if(search !== search.task){
                             alert('Data tidak ada, harap masukan data yang sesuai')
                             navigate('/')
                         }
