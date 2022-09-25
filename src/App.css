@@ -2,32 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@media screen and (max-width: 800px) {
-    body{
-        margin-left: 4rem;
-        margin-right: -6rem;
-    }
-    .tmb{
-        margin-left: 22rem;
-    }
-    #tmb1{
-        margin-left: 28rem;
-    }
-    #tmb2{
-        margin-left: 25rem;
-    }
-    .btn-error{
-        flex-basis: 15rem;
-    }
-    #btn-add{
-        margin-left: 3rem;
-        flex-basis: 12rem;
-    }
-    .get{
-        flex-basis: 9.4rem;
-    }
-}
-
 @media screen and (max-width: 1200px) {
     body{
         margin-left: 4rem;
