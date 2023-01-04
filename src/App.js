@@ -6,11 +6,13 @@ import Create from "./pages/create/Create";
 
 const App =() =>{
   return(
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/create" element={<Create/>}/>
-      <Route path="/edit/:id" element={<Create/>}/>
-    </Routes>
+    <div className="bg-white h-screen">
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/create" element={<Create/>}/>
+        <Route path="/edit/:id" element={<Create/>}/>
+      </Routes>
+    </div>
   )
 }
 export default App
