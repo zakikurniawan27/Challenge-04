@@ -224,7 +224,7 @@ function App() {
                         <input
                           type="checkbox"
                           checked
-                          className="tmb checkbox checkbox-accent mt-1 absolute sm:ml-47 xl:ml-[66rem]"
+                          className="tmb checkbox checkbox-accent mt-1 absolute sm:ml-[47rem] xl:ml-[66rem]"
                         />
                       </>
                     ) : (
