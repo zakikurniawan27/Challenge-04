@@ -122,7 +122,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white max-h-max">
+    <div className="bg-white">
       <div className="text-xl columns-1 text-black ">
         <h1 className="font-bold text-center">TodoSearch</h1>
         <div className="border-solid border border-gray-300 rounded mx-40 my-2">
@@ -147,16 +147,16 @@ function App() {
               <input
                 type="text"
                 placeholder="Search Todo"
-                className="input input-bordered bg-white border-solid border-2 border-gray-300 basis-2/5"
+                className="input input-bordered bg-white border-solid border-2 border-gray-300 lg:basis-2/6 xl:basis-2/5"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row justify-between">
             <button
               type="submit"
-              className="btn btn-info text-white mt-4 ml-5 mb-3 basis-[43.8571429%]"
+              className="btn btn-info text-white mt-4 ml-5 mb-3 lg:basis-[40%] xl:basis-[43.8571429%]"
               onClick={() => {
                 if (search) {
                   navigate(`?task=${search}`);
@@ -176,7 +176,7 @@ function App() {
             <button
               id="btn-add"
               type="submit"
-              className="btn btn-info text-white mt-4 ml-80 mb-3 basis-72"
+              className="btn btn-info text-white mt-4 mb-3 mx-5 lg:basis-56 xl:basis-72"
               onClick={() => navigate("/create")}
             >
               Add new Task
@@ -188,21 +188,21 @@ function App() {
           <div className="flex flex-row mx-36">
             <button
               type="submit"
-              className="get btn btn-info  text-white mt-4 ml-5 mb-3 basis-96 "
+              className="get btn btn-info  text-white mt-4 ml-5 mb-3 lg:basis-72 xl:basis-96 "
               onClick={() => handleGet()}
             >
               All
             </button>
             <button
               type="submit"
-              className="get btn btn-info  text-white mt-4 ml-5 mb-3 basis-96 "
+              className="get btn btn-info  text-white mt-4 ml-5 mb-3 lg:basis-72 xl:basis-96 "
               onClick={() => handleGetdone()}
             >
               Done
             </button>
             <button
               type="submit"
-              className="get btn btn-info  text-white mt-4 ml-5 mb-3 basis-96"
+              className="get btn btn-info  text-white mt-4 ml-5 mb-3 lg:basis-72 xl:basis-96"
               onClick={() => handleGetTodo()}
             >
               Todo
@@ -213,15 +213,18 @@ function App() {
           ) : (
             data?.map((item) => (
               <>
-                <div className=" border-solid border border-gray-300 rounded mx-40 my-2">
-                  <div className="flex flex-row my-2 pl-3" key={item.id}>
+                <div className=" border-solid border border-gray-300 rounded md:mx-40 xl:mx-44 my-2">
+                  <div
+                    className="flex flex-row justify-beetwen my-2 pl-3"
+                    key={item.id}
+                  >
                     {item.status === true ? (
                       <>
                         <p className="line-through text-red-700">{item.name}</p>
                         <input
                           type="checkbox"
                           checked
-                          className="tmb checkbox checkbox-accent mt-1 absolute ml-[66rem]"
+                          className="tmb checkbox checkbox-accent mt-1 absolute sm:ml-47 xl:ml-[66rem]"
                         />
                       </>
                     ) : (
@@ -229,20 +232,20 @@ function App() {
                         <p>{item.name}</p>
                         <input
                           type="checkbox"
-                          className="tmb checkbox checkbox-accent mt-1 absolute ml-[66rem]"
+                          className="tmb checkbox checkbox-accent mt-1 absolute sm:ml-[47rem] xl:ml-[66rem]"
                           onClick={() => toggleComplete(item)}
                         />
                       </>
                     )}
                     <FaTrash
                       id="tmb1"
-                      className=" absolute cursor-pointer text-red-500 mt-1 ml-[72rem]"
+                      className="absolute cursor-pointer text-red-500 mt-1 sm:ml-[53rem] xl:ml-[72rem]"
                       type="submit"
                       onClick={() => handleDelete(item.id)}
                     />
                     <BiPencil
                       id="tmb2"
-                      className=" absolute cursor-pointer text-yellow-500 mt-1 ml-[69rem]"
+                      className="absolute cursor-pointer text-yellow-500 mt-1 sm:ml-[50rem] xl:ml-[69rem]"
                       type="submit"
                       onClick={() => {
                         navigate(`/edit/${item.id}`);
@@ -255,13 +258,13 @@ function App() {
           )}
           <div className="flex flex-row mt-10 ml-40 mb-5">
             <button
-              className="btn btn-error bg-red-700 text-white basis-[43.8571429%]"
+              className="btn btn-error bg-red-700 text-white lg:basis-[41%] xl:basis-[43.8571429%]"
               onClick={() => handleDeleteDone()}
             >
               Delete done Task
             </button>
             <button
-              className="btn btn-error bg-red-700 text-white basis-[43.8571429%] ml-3"
+              className="btn btn-error bg-red-700 text-white lg:basis-[41%] xl:basis-[43.8571429%] ml-3"
               onClick={() => handleDeleteAll()}
             >
               Delete all Task
