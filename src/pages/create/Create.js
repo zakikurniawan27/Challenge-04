@@ -49,7 +49,7 @@ const Create = () => {
         method: "GET",
         url: `https://6673d2c175872d0e0a93d639.mockapi.io/api/v1/todo/${params.id}`,
       });
-      setTugas(res.data.task);
+      setTugas(res.data.name);
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +59,7 @@ const Create = () => {
     if (params.id) {
       handleGetEdit();
     }
-  }, [params]);
+  }, [params.id]);
 
   return (
     <div className="bg-white h-screen text-black">
