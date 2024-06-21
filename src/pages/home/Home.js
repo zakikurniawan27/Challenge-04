@@ -61,6 +61,23 @@ function App() {
     }
   };
 
+  const handleAllTodo = async () => {
+    try {
+      setLoading(true);
+      const res = await axios({
+        method: "GET",
+        url: "https://6673d2c175872d0e0a93d639.mockapi.io/api/v1/todo",
+      });
+      setData(res.data);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+      setRedata(false);
+    }
+  };
+
   useEffect(() => {
     if (redata) {
       handleGet();
@@ -82,7 +99,7 @@ function App() {
   const handleDeleteDone = () => {
     handleGet(
       data.forEach((item) => {
-        if (item.complete === true) {
+        if (item.status === true) {
           axios.delete(
             `https://6673d2c175872d0e0a93d639.mockapi.io/api/v1/todo/${item.id}`
           );
@@ -159,13 +176,10 @@ function App() {
               className="btn btn-info text-white mt-4 ml-5 mb-3 lg:basis-[40%] xl:basis-[43.8571429%]"
               onClick={() => {
                 if (search) {
-                  navigate(`?task=${search}`);
+                  navigate(`?name=${search}`);
                 }
                 if (!search) {
                   alert("harap inputkan data");
-                  navigate("/");
-                } else if (search !== search.task) {
-                  alert("Data tidak ada, harap masukan data yang sesuai");
                   navigate("/");
                 }
                 setRedata(true);
@@ -189,7 +203,7 @@ function App() {
             <button
               type="submit"
               className="get btn btn-info  text-white mt-4 ml-5 mb-3 lg:basis-72 xl:basis-96 "
-              onClick={() => handleGet()}
+              onClick={() => handleAllTodo()}
             >
               All
             </button>
